@@ -6,7 +6,9 @@ let reset = document.querySelector(".reset");
 
 let gameCells =document.querySelectorAll(".game-cell");
 
-console.log(gameCells);
+let gameBanner= document.querySelector(".game-banner");
+
+console.log(gameBanner);
 
 //game variables
 
@@ -25,6 +27,14 @@ function handleWin(letter){
     }else{
         status.innerHTML = `<span>${winner} has won!<span>`;
     }
+    gameBanner.classList.add("display-banner");
+
+    gameBanner.innerHTML = "Game Over!"
+     
+    for(let gameCell of gameCells){
+        gameCell.classList.add("cursor");
+    }
+    // gameCells.classList.add("cursor");
     
 }
 
@@ -43,25 +53,60 @@ function checkGameStatus(){
 
     if(topLeft && topLeft === topMiddle && topLeft===topRight ){
         handleWin(topLeft);
+        gameCells[0].classList.add("win");
+        gameCells[1].classList.add("win");
+        gameCells[2].classList.add("win");
+        
     } else if(middleLeft && middleLeft === middleMiddle && middleLeft===middleRight ){
         handleWin(middleLeft);
+        gameCells[3].classList.add("win");
+        gameCells[4].classList.add("win");
+        gameCells[5].classList.add("win");
+
     } else if(bottomLeft && bottomLeft === bottomMiddle && bottomLeft===bottomRight ){
         handleWin(bottomLeft);
+        gameCells[6].classList.add("win");
+        gameCells[7].classList.add("win");
+        gameCells[8].classList.add("win");
+
     } else if(topLeft && topLeft === middleLeft && topLeft===bottomLeft ){
         handleWin(topLeft);
+        gameCells[0].classList.add("win");
+        gameCells[3].classList.add("win");
+        gameCells[6].classList.add("win");
+        
     } else if(topMiddle && topMiddle === middleMiddle && topMiddle===bottomMiddle ){
         handleWin(topMiddle);
+        gameCells[1].classList.add("win");
+        gameCells[4].classList.add("win");
+        gameCells[7].classList.add("win");
+
     } else if(topRight && topRight === middleRight && topRight===bottomRight ){
         handleWin(topRight);
+        gameCells[2].classList.add("win");
+        gameCells[5].classList.add("win");
+        gameCells[8].classList.add("win");
+
     } else if(topLeft && topLeft === middleMiddle && topLeft===bottomRight ){
         handleWin(topLeft);
+        gameCells[0].classList.add("win");
+        gameCells[4].classList.add("win");
+        gameCells[8].classList.add("win");
+
     } else if(topRight && topRight === middleMiddle && topRight===bottomLeft ){
         handleWin(topRight);
-    } else if(topLeft && topLeft === topMiddle && topLeft===topRight ){
-        handleWin(topLeft);
+        gameCells[2].classList.add("win");
+        gameCells[4].classList.add("win");
+        gameCells[6].classList.add("win");
+
     } else if( topLeft && topMiddle && topRight &&middleLeft &&middleMiddle &&middleRight &&bottomLeft &&bottomMiddle &&bottomRight){
         gameIsLive = false;
         status.innerHTML = "Its a Tie!"  
+
+        gameBanner.classList.add("display-banner");
+
+         gameBanner.innerHTML = "Its Tie!"
+
     } else {
         xIsNext= !xIsNext;
         if(xIsNext){
@@ -79,15 +124,27 @@ function checkGameStatus(){
 
 //event handler
 
-function handleReset(e){
-    console.log(e);
+function handleReset(){
+    xIsNext = true;
+    status.innerHTML = `x is next`;
+    winner = null;
+    for( let gameCell of gameCells){
+        gameCell.classList.remove("x");
+        gameCell.classList.remove("o");
+        gameCell.classList.remove("win");
+        gameCell.classList.remove("cursor");
+
+    }
+    gameBanner.classList.remove("display-banner")
+     gameBanner.innerHTML = "";
+    gameIsLive = true;
 
 }
 
 
 function handleCell(e){
     let classList = e.target.classList
-   let location = classList[1];
+//    let location = classList[1];
 
    if(!gameIsLive || classList[2] === "x"|| classList[2]==="o"){
        return;
@@ -103,6 +160,8 @@ function handleCell(e){
 }
 
 
+
+
 //event listener
 
 reset.addEventListener("click" , handleReset);
@@ -112,3 +171,4 @@ gameCells.forEach((gameCell)=>{
 }
 
 )
+
