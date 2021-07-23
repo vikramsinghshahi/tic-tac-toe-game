@@ -176,3 +176,49 @@ h1 span{
     right:0;
 }
 
+
+
+ @media screen and (max-width: 768px) {
+    .container{
+        max-width: 720px ;
+    }
+    .game-cell{
+        height: 100px;
+    }
+
+    .status-action{
+        padding-top: 10px;
+    }
+   
+}  
+
+
+ @media screen and (max-width: 400px) {
+    .container{
+        max-width: 380px ;
+    }
+    .game-cell{
+        height: 80px;
+    }
+
+    .status-action{
+        padding-top: 10px;
+    }
+   
+} 
+
+@media screen and (max-width: 360px) {
+    .container{
+        max-width: 340px ;
+    }
+   
+    .game-cell{
+        height: 60px;
+    }
+
+    .status-action{
+        padding-top: 10px;
+    }
+   
+}
+
