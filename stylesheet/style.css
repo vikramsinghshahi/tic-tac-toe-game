@@ -53,26 +53,30 @@ table {
     box-sizing: border-box;
 }
 
+html{
+    font-size: 16px;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
 }
 
 .container{
-    max-width: 700px;
+    max-width: 44rem;
     margin: 0 auto;
     /* border: 1px solid black; */
     background-color: rgb(20,183,167);
-    padding: 20px;
+    padding: 1.2rem;
     border-radius: 10px;
     position: relative;
 }
 
 .margin-top{
-    margin-top: 50px;
+    margin-top: 3.1rem;
 }
 
 h1{
-    font-size: 30px;
+    font-size: 1.9rem;
     text-align: center;
     font-weight: 700;
 }
@@ -87,9 +91,13 @@ h1 span{
     align-items: center;
 }
 
+.status-action{
+    padding-top: 1.9rem;
+}
+
 .status{
-    font-size: 24px;
-    margin-left: 20px;
+    font-size: 1.5rem;
+    margin-left: 1.2rem;
 }
 
 .status span{
@@ -98,31 +106,37 @@ h1 span{
 }
 
 .reset{
-    font-size: 24px;
-    margin-right: 20px;
-    padding: 5px 20px;
+    font-size: 1.5rem;
+    margin-right: 1.2rem;
+    padding: 0.4rem 1.2rem;
     background-color: rgba(131, 100, 100,0.5);
     color: white;
-    border-radius: 5px;
+    border-radius: 0.4rem;
+    /* transition-property: all;
+    transition-delay: 0.2s;
+    transition-duration: 0.2s; */
+    
 }
 
 .reset:hover{
     cursor: pointer;
+    background-color: white;
+    color: black;
 }
 
 .game-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
+    grid-gap: 0.9rem;
     background-color: rgb(191, 224, 219);
-    margin-top: 50px;
+    margin-top: 3.1rem;
     /* padding: 10px; */
 
 }
 
 .game-cell{
     background-color: rgb(20,183,167);
-    height: 150px;
+    height: 9.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,14 +153,14 @@ h1 span{
 
 .x::before{
     content: "×";
-    font-size: 100px;
+    font-size: 6.25rem;
 
 }
 
 .o::before{
     content: "○";
     color: white;
-    font-size: 100px;
+    font-size: 6.25rem;
 }
 
 
@@ -166,13 +180,13 @@ h1 span{
 
  .display-banner{
     width: 100%;
-    font-size: 30px;
+    font-size: 1.9rem;
     text-align: center;
-    padding: 20px;
+    padding: 1.2rem;
     background-color:rgba(131, 100, 100,0.5);
     color: white;
     position: absolute;
-    top:300px;
+    top:18.75rem;
     left:0;
     right:0;
 }
@@ -180,26 +194,35 @@ h1 span{
 
 
  @media screen and (max-width: 768px) {
+
+    html{
+        font-size: 14px;
+    }
+
     .container{
-        max-width: 720px ;
+        max-width: 51.5rem ;
     }
     .game-cell{
-        height: 100px;
+        height: 7rem;
     }
 
     .status-action{
-        padding-top: 10px;
+        padding-top: 0.8rem;
     }
    
 }  
 
 
  @media screen and (max-width: 400px) {
+     html{
+         font-size: 10px;
+     }
+
     .container{
-        max-width: 380px ;
+        max-width: 38rem ;
     }
     .game-cell{
-        height: 80px;
+        height: 8rem;
     }
 
     .status-action{
@@ -221,6 +244,10 @@ h1 span{
 } 
 
 @media screen and (max-width: 360px) {
+    html{
+        font-size: 8px;
+    }
+
     .container{
         max-width: 340px ;
     }

@@ -23,9 +23,13 @@ function handleWin(letter){
     gameIsLive = false;
     winner = letter;
     if(winner ==="x"){
-        status.innerHTML = `${winner} has won!`;
+        status.innerHTML = `Player 01 has won!`;
+        // status.innerHTML = `X has won!`;
+        // status.style.color = "orange";
+        // status.style.fontSize = "40px"
     }else{
-        status.innerHTML = `<span>${winner} has won!<span>`;
+        status.innerHTML = `<span>Player 02 has won!<span>`;
+        // status.innerHTML = `<span>O has won!<span>`;
     }
     gameBanner.classList.add("display-banner");
 
@@ -110,9 +114,11 @@ function checkGameStatus(){
     } else {
         xIsNext= !xIsNext;
         if(xIsNext){
-            status.innerHTML = `x is next`
+            status.innerHTML = `Player 01 is next`
+            // status.innerHTML = `x is next`
         } else{
-            status.innerHTML = `<span>o is next<span>`
+            status.innerHTML = `<span>Player 02 is next<span>`
+            // status.innerHTML = `<span>o is next<span>`
         }
     }
 
@@ -126,7 +132,8 @@ function checkGameStatus(){
 
 function handleReset(){
     xIsNext = true;
-    status.innerHTML = `x is next`;
+    status.innerHTML = `Player 01 is next`
+    // status.innerHTML = `x is next`;
     winner = null;
     for( let gameCell of gameCells){
         gameCell.classList.remove("x");
